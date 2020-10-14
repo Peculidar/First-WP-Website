@@ -13,6 +13,8 @@ if ( ! function_exists('universal_theme_setup')):
     //Добавляет тег - title
     add_theme_support('title-tag');
 
+    add_theme_support('post-thumbnails', array( 'post' ) );
+
     //Добавляет пользовательский логотип
     add_theme_support('custom-logo', [
       'width'                => 163,
@@ -29,3 +31,15 @@ if ( ! function_exists('universal_theme_setup')):
   }
 endif;
 add_action('after_setup_theme', 'universal_theme_setup');
+
+## отключаем создание миниатюр файлов для указанных размеров
+add_filter( 'intermediate_image_sizes', 'delete_intermediate_image_sizes' );
+function delete_intermediate_image_sizes( $sizes ){
+	// размеры которые нужно удалить
+	return array_diff( $sizes, [
+		'medium_large',
+		'large',
+		'1536x1536',
+		'2048x2048',
+	] );
+}
