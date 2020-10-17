@@ -42,6 +42,7 @@
     &-thumbnail {
       position: absolute;
       height: 100%;
+      width: 100%;
       left: 0;
       top: 0;
       bottom: 0;
@@ -52,6 +53,8 @@
     &-categories {
       margin: 0;
       padding: 0;
+      list-style: none;
+
       a {
         color: #4592ff;
         text-transform: uppercase;
@@ -114,12 +117,16 @@
     &-title {
       display: block;
       min-height: 40px;
-      font-family: "Lato", sans-serif;
+      font-family: "Lato Regular", sans-serif;
       font-weight: normal;
       font-size: 14px;
       line-height: 20px;
-      color: #4b5157;
       margin: 8px 0 0;
+
+    }
+
+    &-permalink {
+      color: #4b5157;
       text-decoration: none;
     }
   }

@@ -32,6 +32,26 @@ if ( ! function_exists('universal_theme_setup')):
 endif;
 add_action('after_setup_theme', 'universal_theme_setup');
 
+/**
+ * Подключение сайдбара
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function universal_theme_widgets_init() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Сайдбар на главной', 'universal-theme' ),
+			'id'            => 'main-sidebar',
+			'description'   => esc_html__( 'Добавьте виджеты сюда', 'universal-theme' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'universal_theme_widgets_init' );
+
 ## отключаем создание миниатюр файлов для указанных размеров
 add_filter( 'intermediate_image_sizes', 'delete_intermediate_image_sizes' );
 function delete_intermediate_image_sizes( $sizes ){
