@@ -647,11 +647,17 @@ body {
   margin: 0;
   margin-left: 30px;
   padding: 0;
+  width: 263px;
+}
+
+.widget {
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .widget-title {
   margin: 0;
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -659,10 +665,10 @@ body {
 }
 
 .widget-description {
-  font-family: 'Lato Regular', sans-serif;
+  font-family: "Lato Regular", sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #C1F4F5;
+  color: #c1f4f5;
   margin-bottom: 0;
 }
 
@@ -674,10 +680,10 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  font-family: 'Lato Black', sans-serif;
+  font-family: "Lato Black", sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
   margin: 0;
   text-align: center;
@@ -697,8 +703,93 @@ body {
 .widget-downloader {
   position: relative;
   background: #3bbdc4 url(../images/icon-file.svg) no-repeat top 22px right 24px;
-  border-radius: 10px;
   color: #ffffff;
   padding: 25px;
   padding-bottom: 65px;
+}
+
+.widget_tag_cloud .widget-title {
+  padding: 20px 0 19px 25px;
+  font-family: "Lato Black", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  border-bottom: 1px solid #d9dadb;
+  text-transform: uppercase;
+}
+
+.widget_tag_cloud .tagcloud {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 25px;
+  padding-bottom: 35px;
+}
+
+.widget_tag_cloud .tag-cloud-link {
+  text-decoration: none;
+  font-family: "Lato Black", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262d33;
+  border: 1px solid #d9dadb;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.social-links-wrapper {
+  list-style: none;
+  margin: 0;
+  padding: 25px 0 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.social-links-wrapper li:not(:last-child) {
+  margin-right: 10px;
+}
+
+.social-widget .widget-title {
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.social-widget .widget-social-link {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.social-widget .widget-social-link-icon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.social-widget .widget-social-link-facebook {
+  background-color: #4267b2;
+}
+
+.social-widget .widget-social-link-twitter {
+  background-color: #1da1f2;
+}
+
+.social-widget .widget-social-link-youtube {
+  background-color: #ff0000;
+}
+
+.social-widget .widget-social-link-instagram {
+  background-color: purple;
 }
