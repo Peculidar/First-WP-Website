@@ -1,5 +1,12 @@
-.article-grid {
+.main-grid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   margin: 30px 0;
+}
+
+.article-grid {
+  margin: 0;
   padding: 0;
   list-style: none;
   display: grid;
@@ -297,7 +304,7 @@
       }
 
       &-excerpt {
-        margin: 5px 0 30px;
+        margin: 10px 0 30px;
         color: #4b5157;
       }
 

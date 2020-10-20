@@ -1,0 +1,65 @@
+.sidebar {
+  &-front-page {
+    display: block;
+    margin: 0;
+    margin-left: 30px;
+    padding: 0;
+  }
+}
+
+.widget {
+  &-title {
+    margin: 0;
+    font-family: 'Roboto Slab', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  &-description {
+    font-family: 'Lato Regular', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #C1F4F5;
+    margin-bottom: 0;
+  }
+
+  &-link {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-family: 'Lato Black', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 0; 
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 13px;
+    border-top: 1px solid rgba(#FFFFFF, 0.75);
+
+    &-icon {
+      margin-right: 10px;
+    }
+
+    &:hover,
+    &:visited {
+      color: #fff;
+    }
+  }
+
+  &-downloader {
+    position: relative;
+    background: #3bbdc4 url(../images/icon-file.svg) no-repeat top 22px right 24px;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 25px;
+    padding-bottom: 65px;
+  }
+}
