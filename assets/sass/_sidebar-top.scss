@@ -1,10 +1,12 @@
 .sidebar {
   &-front-page {
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     margin-left: 30px;
     padding: 0;
     width: 263px;
+    height: 766px;
   }
 }
 
@@ -69,6 +71,7 @@
 }
 
 .widget_tag_cloud {
+  flex-grow: 1;
   .widget-title {
     padding: 20px 0 19px 25px;
     font-family: "Lato Black", sans-serif;
@@ -113,6 +116,7 @@
 }
 
 .social-widget {
+  margin-bottom: 0;
   .widget-title {
     font-family: Roboto Slab;
     font-style: normal;
@@ -120,7 +124,7 @@
     font-size: 20px;
     line-height: 25px;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 25px;
   }
 
   .widget-social-link {
@@ -152,7 +156,7 @@
     }
 
     &-instagram {
-      background-color: purple;
+      background-color: #262626;
     }
   }
 }

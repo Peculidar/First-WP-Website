@@ -1,0 +1,38 @@
+.investigation {
+  padding: 50px 0px 55px;
+  text-align: center;
+}
+
+.investigation {
+  &-title {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    color: #fff;
+    width: 946px;
+    margin: 0 auto 25px;
+  }
+
+  &-more {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 50px 10px 20px;
+    border-radius: 20px;
+    background-color: #4592ff;
+    border: none;
+    font-family: "Lato Black", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    background-image: url(../images/button-arrow.svg);
+    background-position: right 20px center;
+    background-repeat: no-repeat;
+
+    &:visited,
+    &:hover {
+      color: #fff;
+    }
+  }
+}

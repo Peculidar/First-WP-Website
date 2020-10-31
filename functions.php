@@ -2,8 +2,11 @@
 //Подключает стили и скрипты на страницу
 function enqueue_universal_style() {
   wp_enqueue_style('style', get_stylesheet_uri());
-  wp_enqueue_style('universal-theme', get_template_directory_uri() . '/assets/css/universal-theme.css', 'style');
-  wp_enqueue_style( 'Roboto-Slab', 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+	wp_enqueue_style('universal-theme', get_template_directory_uri() . '/assets/css/universal-theme.css', 'style');
+	wp_enqueue_style('swiper-slider', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', 'style');
+	wp_enqueue_script('swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', null, time(), true);
+	wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/js/scripts.js', 'swiper', time(), true);
+	wp_enqueue_style( 'Roboto-Slab', 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 }
 add_action('wp_enqueue_scripts', 'enqueue_universal_style');
 
@@ -40,8 +43,8 @@ add_action('after_setup_theme', 'universal_theme_setup');
 function universal_theme_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Сайдбар на главной', 'universal-theme' ),
-			'id'            => 'main-sidebar',
+			'name'          => esc_html__( 'Сайдбар на главной сверху', 'universal-theme' ),
+			'id'            => 'main-sidebar-top',
 			'description'   => esc_html__( 'Добавьте виджеты сюда', 'universal-theme' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -52,13 +55,39 @@ function universal_theme_widgets_init() {
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Второй сайдбар на главной', 'universal-theme' ),
-			'id'            => 'second-sidebar',
+			'name'          => esc_html__( 'Второй сайдбар на главной снизу', 'universal-theme' ),
+			'id'            => 'main-sidebar-botto~m',
 			'description'   => esc_html__( 'Добавьте виджеты сюда', 'universal-theme' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
+			'after_widget'  => '</ul>
+													<a href="#" class="recent-posts-read-more">Read more</a>
+													</section>',
 			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2><ul class="recent-posts-list">',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Меню в подвале', 'universal-theme' ),
+			'id'            => 'sidebar-footer',
+			'description'   => esc_html__( 'Добавьте меню сюда', 'universal-theme' ),
+			'before_widget' => '<section id="%1$s" class="footer-menu %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="footer-menu-title">',
 			'after_title'   => '</h2>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Текст в подвале', 'universal-theme' ),
+			'id'            => 'sidebar-footer-text',
+			'description'   => esc_html__( 'Добавьте текст сюда', 'universal-theme' ),
+			'before_widget' => '<section id="%1$s" class="footer-menu %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '',
+			'after_title'   => '',
 		)
 	);
 }
@@ -117,6 +146,7 @@ class Downloader_Widget extends WP_Widget {
 
 	/**
 	 * Админ-часть виджета
+	 * 
 	 *
 	 * @param array $instance сохраненные данные из настроек
 	 */
@@ -341,6 +371,151 @@ function register_social_widget() {
 	register_widget( 'Social_Widget' );
 }
 add_action( 'widgets_init', 'register_social_widget' );
+
+class Recent_Posts_Widget extends WP_Widget {
+
+	// Регистрация виджета используя основной класс
+	function __construct() {
+		// вызов конструктора выглядит так:
+		// __construct( $id_base, $name, $widget_options = array(), $control_options = array() )
+		parent::__construct(
+			'recent_posts_widget', // ID виджета, если не указать (оставить ''), то ID будет равен названию класса в нижнем регистре: Recent_Posts_Widget
+			'Недавние записи',
+      array( 
+        'description' => 'Последние новости', 
+        'classname' => 'recent-posts-widget', 
+      )
+    );
+
+		// скрипты/стили виджета, только если он активен
+		if ( is_active_widget( false, false, $this->id_base ) || is_customize_preview() ) {
+			add_action('wp_enqueue_scripts', array( $this, 'add_recent_posts_widget_scripts' ));
+			add_action('wp_head', array( $this, 'add_recent_posts_widget_style' ) );
+		}
+	}
+
+	/**
+	 * Вывод виджета во Фронт-энде
+	 *
+	 * @param array $args     аргументы виджета.
+	 * @param array $instance сохраненные данные из настроек
+	 */
+	function widget( $args, $instance ) {
+    $title = $instance['title'];
+    $count = $instance['count'];
+
+		echo $args['before_widget'];
+
+		if (! empty ($count) ) {
+			if ( ! empty( $title ) ) {
+			echo $args['before_title'] . $title . $args['after_title'];
+			}
+
+			global $post;
+				$postslist = get_posts( array( 'posts_per_page' => $count, 'order'=> 'DESC', 'orderby' => 'date' ) );
+				foreach ( $postslist as $post ){
+					setup_postdata($post);
+					?>
+					<li class="recent-posts-item">
+						<a href="<?php the_permalink(); ?>" class="recent-posts-permalink">
+							<img src="<?php 
+          if( has_post_thumbnail() ) {
+            the_post_thumbnail_url( null, 'thumb');
+          }
+          else {
+            echo get_template_directory_uri().'/assets/images/img-default.png" ';
+          }
+          ?>" alt="" class="recent-posts-thumbnail">
+							<div class="recent-posts-description">
+								<h4 class="recent-posts-title"><?php echo mb_strimwidth  (get_the_title(), 0, 37, '...'); ?></h4>
+								<p class="recent-posts-time">
+								<?php $time_diff = human_time_diff( get_post_time('U'), current_time('timestamp') );
+								echo "$time_diff назад";
+								//> Опубликовано 5 лет назад.?>
+							</div>
+							</p>
+						</a>
+					</li>
+					<?php
+				}
+				wp_reset_postdata();
+		}
+
+		
+
+		echo $args['after_widget'];
+	}
+
+	/**
+	 * Админ-часть виджета
+	 *
+	 * @param array $instance сохраненные данные из настроек
+	 */
+	function form( $instance ) {
+    $title = @ $instance['title'] ?: 'Недавно опубликованы';
+    $count = @ $instance['count'] ?: '7';
+
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Заголовок:' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+		</p>
+    <p>
+			<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Количество постов:' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo esc_attr( $count ); ?>">
+		</p>
+		<?php 
+	}
+
+	/**
+	 * Сохранение настроек виджета. Здесь данные должны быть очищены и возвращены для сохранения их в базу данных.
+	 *
+	 * @see WP_Widget::update()
+	 *
+	 * @param array $new_instance новые настройки
+	 * @param array $old_instance предыдущие настройки
+	 *
+	 * @return array данные которые будут сохранены
+	 */
+	function update( $new_instance, $old_instance ) {
+		$instance = array();
+    $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+    $instance['count'] = ( ! empty( $new_instance['count'] ) ) ? strip_tags( $new_instance['count'] ) : '';
+
+		return $instance;
+	}
+
+	// скрипт виджета
+	function add_recent_posts_widget_scripts() {
+		// фильтр чтобы можно было отключить скрипты
+		if( ! apply_filters( 'show_recent_posts_widget_script', true, $this->id_base ) )
+			return;
+
+		$theme_url = get_stylesheet_directory_uri();
+
+		wp_enqueue_script('recent_posts_widget_script', $theme_url .'/recent_posts_widget_script.js' );
+	}
+
+	// стили виджета
+	function add_recent_posts_widget_style() {
+		// фильтр чтобы можно было отключить стили
+		if( ! apply_filters( 'show_recent_posts_widget_style', true, $this->id_base ) )
+			return;
+		?>
+		<style type="text/css">
+			.recent_posts_widget a{ display:inline; }
+		</style>
+		<?php
+	}
+
+} 
+// конец класса Recent_Posts_Widget
+
+// регистрация Recent_Posts_Widget в WordPress
+function register_recent_posts_widget() {
+	register_widget( 'recent_posts_widget' );
+}
+add_action( 'widgets_init', 'register_recent_posts_widget' );
 
 
 //Меняем настройки виджета "облако меток"

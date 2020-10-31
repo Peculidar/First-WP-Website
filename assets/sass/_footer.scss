@@ -1,0 +1,112 @@
+.footer {
+  padding: 60px 0 55px;
+  background-color: #fff;
+
+  &-menu {
+    border-top: 3px solid #000000;
+    padding-right: 20px;
+    flex-basis: 100%;
+
+    &:nth-child(1) {
+      border-top: 3px solid #ff4f52;
+    }
+    &:nth-child(2) {
+      border-top: 3px solid #ac8ee3;
+    }
+    &:nth-child(3) {
+      border-top: 3px solid #4592ff;
+    }
+    &:nth-child(4) {
+      border-top: 3px solid #ffa34d;
+    }
+    &:nth-child(5) {
+      border-top: 3px solid #3dc47e;
+    }
+    &:nth-child(6) {
+      border-top: 3px solid #6e99ae;
+    }
+    &-bar {
+      display: flex;
+      align-items: flex-start;
+      padding-bottom: 60px;
+    }
+
+    &-title {
+      font-family: "Lato Black", sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 25px;
+      margin-top: 30px;
+    }
+
+    .menu {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      a {
+        display: inline-block;
+        color: #4b5157;
+        margin: 0 0 15px;
+        font-family: "Lato Regular", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &-info {
+    padding: 30px 0;
+    border-top: 1px solid #d9dadb;
+    border-bottom: 1px solid #d9dadb;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      a {
+        font-family: "Lato Black", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #262d33;
+        text-transform: uppercase;
+      }
+    }
+  }
+  &-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &-text-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-family: "Lato Regular", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #939699;
+    margin: 40px 0;
+
+    .footer-menu {
+      border-top: none;
+    }
+  }
+  &-copyright {
+    min-width: 263px;
+    text-align: right;
+  }
+
+  .textwidget {
+    width: 750px;
+    margin-top: 0;
+    margin-bottom: 25px;
+  }
+}

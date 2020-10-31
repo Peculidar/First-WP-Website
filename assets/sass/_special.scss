@@ -1,0 +1,240 @@
+.special {
+  background-color: #262d33;
+  padding: 60px 0;
+
+  &-grid {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-category-name {
+    padding: 5px 12px;
+    color: #fff;
+    background-color: #3dc47e;
+    border-radius: 3px;
+    align-self: flex-start;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: "Lato Regular", sans-serif;
+    line-height: 15px;
+
+    &:hover,
+    &:visited {
+      color: #fff;
+    }
+  }
+
+  &-report-title {
+    font-family: "Roboto Slab", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-button-photo {
+    padding: 10px 20px;
+    margin-bottom: 40px;
+    background-color: #4592ff;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Lato Black", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 8px;
+    }
+
+    &:hover,
+    &:visited {
+      color: #fff;
+    }
+
+    &-counter {
+      font-family: "Lato Regular", sans-serif;
+      color: #c5e4fc;
+      margin-left: 8px;
+    }
+  }
+
+  &-photo-report {
+    min-height: 570px;
+    width: 48%;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(
+          0deg,
+          rgba(64, 48, 61, 0.35),
+          rgba(64, 48, 61, 0.35)
+        ),
+        url(brooke-cagle-g1Kr4Ozfoac-unsplash.jpg);
+    }
+
+    .photo-report-slider {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-author {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 18px;
+
+    &-info {
+      text-align: center;
+      font-family: "Lato Regular", sans-serif;
+      text-decoration: none;
+    }
+
+    &-name {
+      font-size: 14px;
+      line-height: 20px;
+      color: rgba(#fff, 0.85);
+      padding: 0;
+      margin: 0;
+      margin-top: 8px;
+    }
+
+    &-rank {
+      font-size: 12px;
+      line-height: 15px;
+      color: rgba(#fff, 0.4);
+      padding: 0;
+      margin: 0;
+      margin-top: 2px;
+    }
+
+    &-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.special-other {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .special {
+    &-career {
+      height: 62%;
+      background-color: #b4d1e0;
+      background-image: url(../images/bg-special-other-career.png);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      border-radius: 10px;
+      padding: 30px;
+      overflow: hidden;
+
+      &-permalink {
+        text-decoration: none;
+      }
+
+      &-category {
+        color: #6e99ae;
+        font-size: 12px;
+        line-height: 15px;
+        font-family: "Lato Black", sans-serif;
+        text-transform: uppercase;
+      }
+
+      &-title {
+        color: #262d33;
+        font-family: "Roboto Slab", sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 30px;
+        width: 50%;
+        margin-bottom: 0;
+      }
+
+      &-excerpt {
+        width: 50%;
+        color: #4b5157;
+        font-family: "Lato Regular", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 20px;
+      }
+    }
+    &-random {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+
+      &-item {
+        width: 47%;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 25px;
+        height: 170px;
+      }
+
+      &-permalink {
+        text-decoration: none;
+      }
+
+      &-title {
+        margin: 0;
+        padding: 0;
+        color: #262d33;
+        font-family: "Roboto Slab", sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 25px;
+      }
+
+      &-excerpt {
+        color: #4b5157;
+        font-family: "Lato Regular", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      &-date {
+        color: #939699;
+        font-family: "Lato Regular", sans-serif;
+        font-size: 12px;
+        line-height: 15px;
+      }
+    }
+  }
+}
