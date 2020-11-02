@@ -4,6 +4,9 @@ function enqueue_universal_style() {
   wp_enqueue_style('style', get_stylesheet_uri());
 	wp_enqueue_style('universal-theme', get_template_directory_uri() . '/assets/css/universal-theme.css', 'style');
 	wp_enqueue_style('swiper-slider', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', 'style');
+	wp_deregister_script( 'jquery-core' );
+	wp_register_script ( 'jquery-core', '//code.jquery.com/jquery-3.5.1.min.js' );
+	wp_enqueue_script ('jquery');
 	wp_enqueue_script('swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', null, time(), true);
 	wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/js/scripts.js', 'swiper', time(), true);
 	wp_enqueue_style( 'Roboto-Slab', 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
@@ -56,7 +59,7 @@ function universal_theme_widgets_init() {
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Второй сайдбар на главной снизу', 'universal-theme' ),
-			'id'            => 'main-sidebar-botto~m',
+			'id'            => 'main-sidebar-bottom',
 			'description'   => esc_html__( 'Добавьте виджеты сюда', 'universal-theme' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</ul>
@@ -138,7 +141,10 @@ class Downloader_Widget extends WP_Widget {
     }
     if ( ! empty( $link ) ) {
 			echo '<a target="_blank" class="widget-link" href="' . $link . '">
-			<img class="widget-link-icon" src="'. get_template_directory_uri() . '/assets/images/icon-download.svg">
+			<!--<img class="widget-link-icon" src="'. get_template_directory_uri() . '/assets/images/icon-download.svg"> временно отключено-->
+			<svg class="widget-link-icon" fill="#ffffff" width="20" height="20">
+        <use xlink:href="' . get_template_directory_uri() . '/assets/images/sprite.svg#icon-download"></use>
+      </svg>
 			Скачать</a>';
 		}
 		echo $args['after_widget'];
@@ -262,22 +268,30 @@ class Social_Widget extends WP_Widget {
     }
     if ( ! empty( $facebook ) ) {
 			echo '<ul class="social-links-wrapper"><li><a target="_blank" class="widget-social-link widget-social-link-facebook" href="' . $facebook . '">
-      <img class="widget-social-link-icon" alt="Логотип Facebook" src="'. get_template_directory_uri() . '/assets/images/icon-facebook.svg">
+			<svg class="widget-social-link-icon" fill="#ffffff" width="20" height="20">
+          <use xlink:href="' . get_template_directory_uri(). '/assets/images/sprite.svg#icon-facebook"></use>
+      </svg>
       </a></li>';
     }
     if ( ! empty( $twitter ) ) {
 			echo '<li><a target="_blank" class="widget-social-link widget-social-link-twitter" href="' . $twitter . '">
-      <img class="widget-social-link-icon" alt="Логотип Twitter" src="'. get_template_directory_uri() . '/assets/images/icon-twitter.svg">
+			<svg class="widget-social-link-icon" fill="#ffffff" width="20" height="20">
+        <use xlink:href="' . get_template_directory_uri() . '/assets/images/sprite.svg#icon-twitter"></use>
+      </svg>
       </a></li>';
     }
     if ( ! empty( $youtube ) ) {
 			echo '<li><a target="_blank" class="widget-social-link widget-social-link-youtube" href="' . $youtube . '">
-      <img class="widget-social-link-icon" alt="Логотип Youtube" src="'. get_template_directory_uri() . '/assets/images/icon-youtube.svg">
+			<svg class="widget-social-link-icon" fill="#ffffff" width="20" height="20">
+        <use xlink:href="' . get_template_directory_uri() . '/assets/images/sprite.svg#icon-youtube"></use>
+      </svg>
       </a></li>';
 		}
 		if ( ! empty( $instagram ) ) {
 			echo '<li><a target="_blank" class="widget-social-link widget-social-link-instagram" href="' . $instagram . '">
-      <img class="widget-social-link-icon" alt="Логотип Instagram" src="'. get_template_directory_uri() . '/assets/images/icon-instagram.svg">
+			<svg class="widget-social-link-icon" fill="#ffffff" width="20" height="20">
+        <use xlink:href="' . get_template_directory_uri() .'/assets/images/sprite.svg#icon-instagram"></use>
+      </svg>
       </a></li></ul>';
     }
     echo $args['after_widget'];

@@ -13,3 +13,10 @@ var mySwiper = new Swiper(".swiper-container", {
     delay: 5000,
   },
 });
+
+let menuToggle = $('.header-menu-toggle');
+
+menuToggle.on('click', function (event) {
+  event.preventDefault();
+  $('.header-menu').slideToggle(200);
+});

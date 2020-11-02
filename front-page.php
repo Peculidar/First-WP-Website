@@ -247,7 +247,7 @@
                 <div class="article-grid-item-wrapper">
                   <a href="<?php the_permalink()?>" class="article-grid-permalink">
                     <h4 class="article-grid-title"><?php echo mb_strimwidth(get_the_title(), 0, 23, '...'); ?></h4>
-                    <p class="article-grid-excerpt"><?php echo mb_strimwidth(get_the_excerpt(), 0, 80, '...'); ?></p>
+                    <p class="article-grid-excerpt"><?php echo mb_strimwidth(get_the_excerpt(), 0, 70, '...'); ?></p>
                     <p class="article-grid-date"><?php echo the_time('j F')?></p>
                   </a>
                 </div>
@@ -498,7 +498,7 @@ wp_reset_postdata();
                 <li class="special-random-item">
                   <a href="<?php echo get_the_permalink();?>" class="special-random-permalink">
                     <h3 class="special-random-title"><?php echo mb_strimwidth(get_the_title(), 0, 20, '...'); ?></h3>
-                    <p class="special-random-excerpt"><?php echo mb_strimwidth(get_the_excerpt(), 0, 50, '...'); ?></p>
+                    <p class="special-random-excerpt"><?php echo mb_strimwidth(get_the_excerpt(), 0, 40, '...'); ?></p>
                     <p class="special-random-date"><?php echo the_time('j F')?></p>
                   </a>
                 </li>

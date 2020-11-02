@@ -4,7 +4,6 @@
   &-list {
     margin: 0;
     padding: 0;
-    width: 842px;
   }
 }
 
@@ -146,5 +145,24 @@
     &:visited {
       color: #ac8ee3;
     }
+  }
+}
+
+@media screen and (max-width: $mobile-ends) {
+  .news-post-thumbnail {
+    width: 100%;
+  }
+
+  .news-post-permalink {
+    flex-wrap: wrap;
+  }
+
+  .news-post-category {
+    margin-top: 15px;
+  }
+
+  .sidebar-front-page-bottom {
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 }

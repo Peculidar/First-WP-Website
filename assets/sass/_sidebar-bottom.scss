@@ -5,6 +5,7 @@ body {
 .news-and-sidebar-wrapper {
   margin: 60px auto;
   display: flex;
+  justify-content: space-between;
 
   .widget-title {
     font-family: "Lato Black", sans-serif;
@@ -14,6 +15,11 @@ body {
     padding: 20px 25px;
     border-bottom: 1px solid #d9dadb;
   }
+}
+
+.recent-posts-widget {
+  margin-left: 30px;
+  width: 263px;
 }
 
 .recent-posts-list {
@@ -91,5 +97,48 @@ body {
   &:visited,
   &:active {
     color: #262d33;
+  }
+}
+
+@media screen and (max-width: $tablet-ends) {
+  .news-and-sidebar-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .sidebar-front-page-bottom {
+    width: 100%;
+  }
+
+  .recent-posts-widget {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 30px;
+  }
+
+  .recent-posts-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .recent-posts-item {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: $mobile-ends) {
+  .recent-posts-list {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  .recent-posts-item {
+    width: 100%;
+  }
+
+  .news-and-sidebar-wrapper {
+    margin-bottom: 0;
+    margin-top: 30px;
   }
 }

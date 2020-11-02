@@ -7,6 +7,10 @@
   background-color: #262d33;
   position: relative;
   height: 475px;
+
+  @media screen and (max-width: $tablet-ends) {
+    height: auto;
+  }
 }
 
 .hero {
@@ -27,6 +31,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media screen and (max-width: $mobile-ends) {
+    padding: 35px 15px 50px;
+  }
 
   &::after {
     position: absolute;
@@ -71,13 +79,18 @@
     }
 
     &-title {
-      width: 595px;
+      max-width: 595px;
       font-family: "Roboto Slab", sans-serif;
       font-weight: bold;
       font-size: 40px;
       line-height: 50px;
       color: #fff;
       margin: 20px 0 50px;
+
+      @media screen and (max-width: $mobile-ends) {
+        font-size: 28px;
+        line-height: 120%;
+      }
     }
   }
 }
@@ -127,19 +140,19 @@
     }
 
     .web-design {
-      color: #FFA34D;
+      color: #ffa34d;
     }
 
     .css {
-      color: #3DC47E;
+      color: #3dc47e;
     }
 
     .javascript {
-      color: #6E99AE;
+      color: #6e99ae;
     }
 
     .html {
-      color: #AC8EE3;
+      color: #ac8ee3;
     }
   }
 }
@@ -206,4 +219,20 @@
   font-family: "Lato Black", sans-serif;
   line-height: 20px;
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 1200px) {
+  .right-col {
+    flex-basis: 35%;
+  }
+}
+
+@media screen and (max-width: $mobile-ends) {
+  .hero {
+    flex-direction: column;
+  }
+  .front-page-header {
+    height: auto;
+    padding-bottom: 30px;
+  }
 }

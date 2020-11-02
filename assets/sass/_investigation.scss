@@ -36,3 +36,17 @@
     }
   }
 }
+
+@media screen and (max-width: $tablet-ends) {
+  .investigation-title {
+    width: auto;
+    font-size: 32px;
+    line-height: 140%;
+  }
+}
+
+@media screen and (max-width: $mobile-ends) {
+  .investigation-title {
+    font-size: 24px;
+  }
+}

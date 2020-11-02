@@ -3,3 +3,25 @@
   max-width: 1140px;
   margin: auto;
 }
+
+$mobile-ends: 740px;
+$tablet-ends: 1024px;
+$large-desktops: 1200px;
+
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media screeen and (max-width: 800px) {
+  .container {
+    max-width: 576px;
+  }
+}
