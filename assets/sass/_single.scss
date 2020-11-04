@@ -1,0 +1,274 @@
+.post-header {
+  padding: 60px 0px 72px;
+  color: #fff;
+
+  &-title-wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-bookmark-icon {
+    margin-top: 20px;
+  }
+
+  .post-excerpt {
+    font-family: "Lato Regular", sans-serif;
+    font-size: 18px;
+    line-height: 30px;
+    max-width: 632px;
+    opacity: 0.85;
+    margin-bottom: 43px;
+  }
+}
+
+.content-category-name {
+  color: #4592ff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Lato Black", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+
+  &:visited,
+  &:hover {
+    color: #4592ff;
+  }
+}
+
+.post-header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .nav-links {
+    min-width: 160px;
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      font-family: "Lato Black", sans-serif;
+      font-size: 12px;
+      line-height: 15px;
+
+      &:visited,
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+
+  .post-navigation {
+    margin: 0;
+  }
+}
+
+.post-home-link {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-family: "Lato Black", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  margin-left: auto;
+  margin-right: 30px;
+
+  svg {
+    margin-right: 8px;
+  }
+
+  &:visited,
+  &:hover {
+    color: #fff;
+  }
+}
+
+.post-nav-prev {
+  svg {
+    margin-right: 8px;
+  }
+}
+
+.nav-next {
+  svg {
+    margin-left: 8px;
+  }
+}
+
+.post-entry {
+  &-title {
+    max-width: 760px;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 70px;
+    margin-bottom: 30px;
+    margin-top: 0;
+  }
+
+  &-content {
+    max-width: 623px;
+    margin-top: 60px;
+
+    a {
+      color: #4592ff;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #262d33;
+      font-family: Roboto Slab;
+      font-style: normal;
+      font-weight: bold;
+      line-height: 140%;
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    h2 {
+      font-size: 25px;
+      line-height: 30px;
+    }
+
+    h3 {
+      font-size: 22px;
+    }
+
+    h4 {
+      font-size: 20px;
+    }
+
+    h5 {
+      font-size: 18px;
+    }
+
+    h6 {
+      font-size: 16px;
+    }
+
+    p {
+      font-family: "Lato Regular", sans-serif;
+      font-size: 18px;
+      line-height: 30px;
+      color: #4b5157;
+
+      strong {
+        color: #000;
+      }
+    }
+
+    .has-drop-cap:not(:focus):first-letter {
+      color: #4592ff;
+      font-family: "Lato Black", sans-serif;
+      font-size: 100px;
+      line-height: 75px;
+    }
+
+    ul,
+    ol {
+      padding: 0;
+      margin-left: 20px;
+      font-size: 16px;
+      font-family: "Lato Regular", sans-serif;
+      color: #4b5157;
+    }
+
+    blockquote {
+      margin-left: 0;
+      margin-top: 80px;
+      margin-bottom: 45px;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: "";
+        background-image: url(../images/icon-quote.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        width: 70px;
+        height: 70px;
+        z-index: -1;
+        top: -20px;
+        left: -20px;
+      }
+      p {
+        font-family: Roboto Slab;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 30px;
+        color: #262d33;
+        margin-bottom: 20px;
+      }
+
+      cite {
+        font-family: Lato-Regular;
+        font-style: italic;
+        font-size: 18px;
+        margin-top: 10px;
+      }
+    }
+
+    figure {
+      margin: 0 auto;
+    }
+
+    iframe {
+      width: 100%;
+      border: 1px solid #c7c7c7;  
+    }
+
+    figcaption {
+      text-align: center;
+      margin: 0 auto;
+      font-family: "Lato Regular", sans-serif;
+      font-style: italic;
+
+      strong {
+        font-family: "Lato Black", sans-serif;
+      }
+    }
+  }
+}
+
+.post-header {
+  &-info {
+    font-family: "Lato Regular", sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    opacity: 0.85;
+  }
+
+  &-date {
+    margin: 0;
+    margin-right: 20px;
+  }
+
+  &-likes {
+    margin-right: 20px;
+  }
+}
+
+.tags-links {
+  a {
+    text-decoration: none;
+    font-family: "Lato Regular", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 5px 15px;
+    color: #262d33;
+    border: 1px solid #d9dadb;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+}
