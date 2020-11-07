@@ -46,6 +46,10 @@ body {
   color: #fff;
 }
 
+.post-header-wrapper {
+  position: relative;
+}
+
 .post-header-title-wrapper {
   margin-top: 50px;
   display: flex;
@@ -144,12 +148,19 @@ body {
 }
 
 .post-entry-content {
-  max-width: 623px;
   margin-top: 60px;
+}
+
+.post-entry-content div:first-of-type {
+  max-width: 623px;
 }
 
 .post-entry-content a {
   color: #4592ff;
+}
+
+.post-entry-content a:first-of-type {
+  max-width: 623px;
 }
 
 .post-entry-content h1,
@@ -163,6 +174,15 @@ body {
   font-style: normal;
   font-weight: bold;
   line-height: 140%;
+}
+
+.post-entry-content h1:first-of-type,
+.post-entry-content h2:first-of-type,
+.post-entry-content h3:first-of-type,
+.post-entry-content h4:first-of-type,
+.post-entry-content h5:first-of-type,
+.post-entry-content h6:first-of-type {
+  max-width: 623px;
 }
 
 .post-entry-content h1 {
@@ -195,6 +215,10 @@ body {
   font-size: 18px;
   line-height: 30px;
   color: #4b5157;
+}
+
+.post-entry-content p:first-of-type {
+  max-width: 623px;
 }
 
 .post-entry-content p strong {
@@ -305,9 +329,94 @@ body {
   margin-right: 10px;
 }
 
+.post-header-author {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #d9dadb;
+  min-width: 263px;
+}
+
+.post-header-author-author-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.post-header-author-info {
+  color: #262d33;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px 25px 20px;
+}
+
+.post-header-author-name {
+  font-family: "Roboto Slab", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.post-header-author-rank {
+  font-family: "Lato Regular", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #4b5157;
+  margin-bottom: 15px;
+}
+
+.post-header-author-link {
+  font-family: "Lato Black", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  color: #262d33;
+  padding: 15px 25px;
+  border-top: 1px solid #d9dadb;
+  width: 100%;
+  text-align: center;
+}
+
+.post-header-author-link:hover, .post-header-author-link:visited {
+  color: #262d33;
+}
+
+.post-header-post-counter {
+  font-family: "Lato Black", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
 .header {
-  background-color: #262d33;
   padding: 15px 0;
+}
+
+.header-dark {
+  background-color: #262d33;
+}
+
+.header-light {
+  background-color: #fff;
+}
+
+.header-light .menu-item a {
+  color: #c7c7c7;
+  font-family: "Lato Black", sans-serif;
+}
+
+.header-light .search-form input {
+  background: #f5f5f5;
 }
 
 .header-wrapper {
@@ -387,6 +496,9 @@ body {
     height: 1px;
     background-color: #fff;
   }
+  .header-menu-toggle-light span {
+    background-color: #000;
+  }
 }
 
 .menu-item a {
@@ -463,173 +575,30 @@ body {
   cursor: pointer;
 }
 
-.header-post {
-  background-color: #fff;
-  padding: 15px 0;
+.custom-logo {
+  width: 40px;
+  height: 40px;
 }
 
-.header-post .custom-logo {
-  background-color: #c7c7c7;
-  border-radius: 100px;
-  border: 2px solid #c7c7c7;
-}
-
-.header-post-wrapper {
+.logo {
   display: flex;
   align-items: center;
-  width: 100%;
-  justify-content: space-between;
-}
-
-@media screen and (max-width: 1024px) {
-  .header-post-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
-  }
-}
-
-@media screen and (max-width: 740px) {
-  .header-post-wrapper {
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-}
-
-.header-post-menu ul {
-  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
 }
 
-@media screen and (max-width: 1024px) {
-  .header-post-menu ul {
-    padding-top: 30px;
-    flex-wrap: wrap;
-  }
+.logo-name {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 24px;
+  margin-left: 10px;
 }
 
-@media screen and (max-width: 740px) {
-  .header-post-menu ul {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    width: calc(40% + 40px);
-    position: absolute;
-    right: 0;
-    top: 55px;
-    z-index: 5;
-    background-color: #fff;
-    border-radius: 10px;
-    padding-top: 0;
-    margin-top: 0;
-    box-shadow: 1px 1px 10px rgba(38, 45, 51, 0.2);
-    padding: 20px 0;
-  }
+.logo-name-dark {
+  color: #fff;
 }
 
-.header-post-menu li a {
-  text-decoration: none;
-  color: #939699;
-  margin: 0 15px;
-  font-family: "Lato Regular", sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-@media screen and (max-width: 1200px) {
-  .header-post-menu li a {
-    margin: 0 10px;
-  }
-}
-
-@media screen and (max-width: 740px) {
-  .header-post-menu li a {
-    display: block;
-    width: 100%;
-    color: #262d33;
-    padding: 10px 20px;
-  }
-}
-
-.header-post-toggle {
-  display: none;
-}
-
-@media screen and (max-width: 740px) {
-  .header-post-toggle {
-    display: flex;
-    width: 30px;
-    height: 20px;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-    margin-left: 10px;
-  }
-  .header-post-toggle span {
-    width: 100%;
-    height: 1px;
-    background-color: #939699;
-  }
-}
-
-.header-post .search-form {
-  position: relative;
-  width: 25%;
-  height: 40px;
-  margin-left: auto;
-}
-
-@media screen and (max-width: 1024px) {
-  .header-post .search-form {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-}
-
-@media screen and (max-width: 740px) {
-  .header-post .search-form {
-    position: relative;
-    margin-top: 30px;
-    width: 100%;
-    order: 3;
-  }
-}
-
-.header-post .search-form input {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  border: none;
-  padding: 10px 25px;
-}
-
-.header-post .search-form input::placeholder {
-  color: #939699;
-}
-
-.header-post .search-form button {
-  position: absolute;
-  right: 10%;
-  top: 0;
-  width: 25px;
-  height: 40px;
-  background-color: transparent;
-  background-image: url(../images/search-icon.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  border: none;
-  cursor: pointer;
+.logo-name-light {
+  color: #4592ff;
 }
 
 .home {
@@ -2178,6 +2147,10 @@ body {
 .footer-nav {
   display: flex;
   align-items: center;
+}
+
+.footer-nav-wrapper {
+  margin-right: auto;
 }
 
 .footer-text-wrapper {

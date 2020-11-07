@@ -7,14 +7,15 @@
 </head>
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
-<header class="header">
+<header class="header header-dark">
   <div class="container">
     <div class="header-wrapper">
       <?php 
         if(has_custom_logo()) {
-          the_custom_logo();
+          echo '<div class="logo">' . get_custom_logo() .  
+          '<span class="logo-name logo-name-dark">' . get_bloginfo('name') . '</span></div>';
         } else {
-          echo 'Universal';
+          echo '<span class="logo-name-dark">' . get_bloginfo('name') . '</span>';
         };
       ?>
       <?php

@@ -20,11 +20,3 @@ menuToggle.on('click', function (event) {
   event.preventDefault();
   $('.header-menu').slideToggle(200);
 });
-
-
-let menuToggle = $(".header-post-menu-toggle");
-
-menuToggle.on("click", function (event) {
-  event.preventDefault();
-  $(".header-post-menu").slideToggle(200);
-});

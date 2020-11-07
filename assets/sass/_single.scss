@@ -2,6 +2,10 @@
   padding: 60px 0px 72px;
   color: #fff;
 
+  &-wrapper {
+    position: relative;
+  }
+
   &-title-wrapper {
     margin-top: 50px;
     display: flex;
@@ -108,11 +112,20 @@
   }
 
   &-content {
-    max-width: 623px;
+    // max-width: 623px;
     margin-top: 60px;
+
+    div {
+      &:first-of-type {
+        max-width: 623px;
+      }
+    }
 
     a {
       color: #4592ff;
+      &:first-of-type {
+        max-width: 623px;
+      }
     }
 
     h1,
@@ -126,6 +139,9 @@
       font-style: normal;
       font-weight: bold;
       line-height: 140%;
+      &:first-of-type {
+        max-width: 623px;
+      }
     }
 
     h1 {
@@ -158,6 +174,9 @@
       font-size: 18px;
       line-height: 30px;
       color: #4b5157;
+      &:first-of-type {
+        max-width: 623px;
+      }
 
       strong {
         color: #000;
@@ -223,7 +242,7 @@
 
     iframe {
       width: 100%;
-      border: 1px solid #c7c7c7;  
+      border: 1px solid #c7c7c7;
     }
 
     figcaption {
@@ -270,5 +289,79 @@
     border: 1px solid #d9dadb;
     border-radius: 5px;
     margin-right: 10px;
+  }
+}
+
+//author block
+
+.post-header {
+  &-author {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #d9dadb;
+    min-width: 263px;
+
+    &-author-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    &-info {
+      color: #262d33;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 35px 25px 20px;
+    }
+
+    &-name {
+      font-family: "Roboto Slab", sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 25px;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    &-rank {
+      font-family: "Lato Regular", sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      color: #4b5157;
+      margin-bottom: 15px;
+    }
+
+    &-link {
+      font-family: "Lato Black", sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      text-decoration: none;
+      color: #262d33;
+      padding: 15px 25px;
+      border-top: 1px solid #d9dadb;
+      width: 100%;
+      text-align: center;
+
+      &:hover,
+      &:visited {
+        color: #262d33;
+      }
+    }
+  }
+
+  &-post-counter {
+    font-family: "Lato Black", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
   }
 }

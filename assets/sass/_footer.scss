@@ -86,6 +86,10 @@
   &-nav {
     display: flex;
     align-items: center;
+
+    &-wrapper {
+      margin-right: auto;
+    }
   }
 
   &-text-wrapper {
