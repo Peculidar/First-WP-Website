@@ -10,14 +10,19 @@
 <header class="header header-dark">
   <div class="container">
     <div class="header-wrapper">
-      <?php 
-        if(has_custom_logo()) {
-          echo '<div class="logo">' . get_custom_logo() .  
-          '<span class="logo-name logo-name-dark">' . get_bloginfo('name') . '</span></div>';
-        } else {
-          echo '<span class="logo-name-dark">' . get_bloginfo('name') . '</span>';
-        };
-      ?>
+      <div class="logo">
+        <?php 
+        $logo_img = '';
+        if( $custom_logo_id = get_theme_mod('custom_logo') ){
+          $logo_img = wp_get_attachment_image( $custom_logo_id, 'full', false, array(
+            'class'    => 'custom-logo',
+            'itemprop' => 'logo',
+          ) );
+          }
+          
+        echo $logo_img;?>
+        <span class="logo-name logo-name-dark"><?php echo get_bloginfo('name')?></span>
+      </div>
       <?php
         wp_nav_menu( [
           'theme_location'  => 'header_menu',

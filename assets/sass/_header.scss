@@ -180,6 +180,7 @@
     font-family: "Roboto Slab", sans-serif;
     font-size: 24px;
     margin-left: 10px;
+    text-decoration: none;
 
     &-dark {
       color: #fff;
@@ -187,6 +188,12 @@
 
     &-light {
       color: #4592ff;
+
+      &:hover,
+      &:active,
+      &:visited {
+        color: #4592ff;
+      }
     }
   }
 }
