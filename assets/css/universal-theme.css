@@ -148,6 +148,7 @@ body {
 }
 
 .post-entry-content {
+  padding-bottom: 60px;
   margin-top: 60px;
 }
 
@@ -317,6 +318,14 @@ body {
   margin-right: 20px;
 }
 
+.tags-links {
+  padding-bottom: 60px;
+  border-bottom: 1px solid #D9DADB;
+  max-width: 632px;
+  width: 100%;
+  display: block;
+}
+
 .tags-links a {
   text-decoration: none;
   font-family: "Lato Regular", sans-serif;
@@ -343,7 +352,7 @@ body {
   min-width: 263px;
 }
 
-.post-header-author-author-avatar {
+.post-header-author-avatar {
   width: 90px;
   height: 90px;
   border-radius: 50%;
@@ -396,6 +405,22 @@ body {
   font-family: "Lato Black", sans-serif;
   font-size: 14px;
   line-height: 20px;
+}
+
+.meks_ess {
+  max-width: 632px;
+  margin-top: 0;
+}
+
+.meks_ess_share_label {
+  font-size: 25px;
+  line-height: 30px;
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  color: #262D33;
+  margin-top: 30px;
+  margin-bottom: 25px;
 }
 
 .header {
@@ -1588,6 +1613,76 @@ body {
     margin-bottom: 0;
     margin-top: 30px;
   }
+}
+
+.sidebar-under-post {
+  background-color: #f5f5f5;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  margin-top: 60px;
+}
+
+.related-posts-widget {
+  display: flex;
+  align-items: flex-start;
+  background-color: #f5f5f5;
+  flex-wrap: wrap;
+}
+
+.related-posts-permalink {
+  background-color: #f5f5f5;
+  text-decoration: none;
+  width: 263px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  justify-content: space-between;
+}
+
+.related-posts-thumbnail {
+  width: 263px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.related-posts-title {
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 25px;
+  color: #262d33;
+  width: 90%;
+}
+
+.related-posts-info {
+  display: flex;
+  align-items: center;
+}
+
+.related-posts-info svg {
+  margin-right: 5px;
+}
+
+.related-posts-comments {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.related-posts-views {
+  display: flex;
+  align-items: center;
+}
+
+.related-posts-comments-counter, .related-posts-views-counter {
+  font-family: "Lato Regular", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #939699;
 }
 
 .investigation {

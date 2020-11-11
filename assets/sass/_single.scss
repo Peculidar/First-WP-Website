@@ -112,7 +112,7 @@
   }
 
   &-content {
-    // max-width: 623px;
+    padding-bottom: 60px;
     margin-top: 60px;
 
     div {
@@ -279,6 +279,12 @@
 }
 
 .tags-links {
+  padding-bottom: 60px;
+  border-bottom: 1px solid #D9DADB;
+  max-width: 632px;
+  width: 100%;
+  display: block;
+
   a {
     text-decoration: none;
     font-family: "Lato Regular", sans-serif;
@@ -308,7 +314,7 @@
     border: 1px solid #d9dadb;
     min-width: 263px;
 
-    &-author-avatar {
+    &-avatar {
       width: 90px;
       height: 90px;
       border-radius: 50%;
@@ -363,5 +369,21 @@
     font-family: "Lato Black", sans-serif;
     font-size: 14px;
     line-height: 20px;
+  }
+}
+
+.meks_ess {
+  max-width: 632px;
+  margin-top: 0;
+
+  &_share_label {
+    font-size: 25px;
+    line-height: 30px;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    color: #262D33;
+    margin-top: 30px;
+    margin-bottom: 25px;
   }
 }

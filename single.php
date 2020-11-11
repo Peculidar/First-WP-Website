@@ -8,6 +8,8 @@
 			//мы находим шаблон для вывода поста в папке template_parts
 			get_template_part( 'template-parts/content', get_post_type() );
 
+			echo get_sidebar('under-post');
+
 			// Если комментарии к записи открыты, выводим комментарии
       if ( comments_open() || get_comments_number() ) :
         //находим файл comment.php и выводим его
